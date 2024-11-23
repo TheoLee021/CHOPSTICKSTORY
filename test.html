@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>3x3 Grid Layout with Korean Pattern</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 10px;
+            margin: 0;
+            background-color: #EFE4DB;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 60px 1fr 60px;
+            grid-template-rows: auto 1fr auto;
+            height: calc(100vh - 32px);
+        }
+
+        /* 그리드 셀 공통 스타일 */
+        .grid-cell {
+            margin: 0;
+        }
+        
+        /* 2x2 셀 스타일 */
+        .two-by-two-cell {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            width: 60px;
+            height: 60px;
+        }
+
+        /* 패턴 셀 스타일 */
+        .pattern-cell {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            width: 30px;
+            height: 30px;
+        }
+
+        .pattern-item {
+            border: 0.9px solid #826753;
+        }
+
+        .no-top-border {
+            border-top: none;
+        }
+
+        .no-right-border {
+            border-right: none;
+        }
+
+        .no-left-border {
+            border-left: none;
+        }
+
+        .no-bottom-border {
+            border-bottom: none;
+        }
+
+        /* 헤더 중앙 */
+        .header-center {
+            min-height: 60px;
+            border-top: 1px solid #826753;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0px;
+        }
+
+        /* 메인 영역 */
+        .main-content {
+            min-height: 400px;
+            padding: 20px;
+        }
+
+        /* 푸터 중앙 */
+        .footer-center {
+            min-height: 60px;
+            border-bottom: 1px solid #826753;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .pattern-left {
+            border-left: 1px solid #826753;
+        }
+
+        .pattern-right {
+            border-right: 1px solid #826753;
+        }
+
+        .pattern-top {
+            border-top: 1px solid #826753;
+        }
+
+        .pattern-bottom {
+            border-bottom: 1px solid #826753;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- 헤더 행 -->
+        <div class="two-by-two-cell">
+            <div class="pattern-cell">
+                <div class="pattern-item pattern-top pattern-left"></div>
+                <div class="pattern-item no-top-border"></div>
+                <div class="pattern-item no-right-border pattern-top"></div>
+                <div class="pattern-item no-left-border"></div>
+                <div class="pattern-item"></div>
+                <div class="pattern-item pattern-right"></div>
+                <div class="pattern-item no-bottom-border pattern-left"></div>
+                <div class="pattern-item pattern-bottom"></div>
+                <div class="pattern-item no-bottom-border no-right-border"></div>
+            </div>
+            <div class="pattern-top"></div>
+            <div class="pattern-left"></div>
+            <div></div>
+        </div>
+        <div class="grid-cell header-center">
+            <header class="screen-header">
+                <a href="home.html">
+                    <h1 class="screen-header__logo">Chopstick Story</h1>
+                </a>
+                <div class="screen-header__title">
+                    <a href="about_us.html">
+                        <div>About Us</div>
+                    </a>
+                    <a href="workshop.html">
+                        <div>Workshop</div>
+                    </a>
+                    <a href="contact.html">
+                        <div>Contact</div>
+                    </a>
+                </div>
+                <div class="screen-header__menu">
+                    <i class="fa-solid fa-bars fa-xl"></i>
+                </div>
+            </header>
+        </div>
+        <div class="two-by-two-cell">
+            <div class="pattern-top"></div>
+            <div class="pattern-cell">
+                <div class="pattern-item no-left-border pattern-top"></div>
+                <div class="pattern-item no-top-border"></div>
+                <div class="pattern-item pattern-top pattern-right"></div>
+                <div class="pattern-item pattern-left"></div>
+                <div class="pattern-item"></div>
+                <div class="pattern-item no-right-border"></div>
+                <div class="pattern-item no-left-border no-bottom-border"></div>
+                <div class="pattern-item pattern-bottom"></div>
+                <div class="pattern-item no-bottom-border pattern-right"></div>
+            </div>
+            <div></div>
+            <div class="pattern-right"></div>
+        </div>
+
+        <!-- 메인 행 -->
+        <div class="grid-cell pattern-left"></div>
+        <main class="grid-cell main-content"></main>
+        <div class="grid-cell pattern-right"></div>
+
+        <!-- 푸터 행 -->
+        <div class="two-by-two-cell">
+            <div class="pattern-left"></div>
+            <div></div>
+            <div class="pattern-cell">
+                <div class="pattern-item no-top-border"></div>
+                <div class="pattern-item"></div>
+                <div class="pattern-item no-top-border no-right-border"></div>
+                <div class="pattern-item no-left-border"></div>
+                <div class="pattern-item"></div>
+                <div class="pattern-item"></div>
+                <div class="pattern-item"></div>
+                <div class="pattern-item no-bottom-border"></div>
+                <div class="pattern-item no-right-border"></div>
+            </div>
+            <div class="pattern-bottom"></div>
+        </div>
+        <div class="grid-cell footer-center"></div>
+        <div class="two-by-two-cell">
+            <div></div>
+            <div class="pattern-right"></div>
+            <div class="pattern-bottom"></div>
+            <div class="pattern-cell">
+                <div class="pattern-item no-left-border no-top-border"></div>
+                <div class="pattern-item"></div>
+                <div class="pattern-item no-top-border"></div>
+                <div class="pattern-item"></div>
+                <div class="pattern-item"></div>
+                <div class="pattern-item no-right-border"></div>
+                <div class="pattern-item no-left-border"></div>
+                <div class="pattern-item no-bottom-border"></div>
+                <div class="pattern-item"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/b3f4de9307.js" 
+    crossorigin="anonymous"
+    ></script>
+</body>
+</html>
