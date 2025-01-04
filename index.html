@@ -386,8 +386,19 @@
                 font-size: 1.1rem;
             }
 
+            nav {
+                top: var(--header-height-mobile);
+                height: calc(100% - var(--header-height-mobile));
+                padding-top: 15px;
+            }
+
+            nav .social-links {
+                padding: var(--nav-section-padding-mobile) 0;
+            }
+
             nav .menu-logo {
                 padding: var(--nav-section-padding-mobile) 0;
+                margin-bottom: var(--nav-section-margin-bottom-mobile);
             }
             
             nav .menu-logo a {
@@ -396,21 +407,6 @@
             
             nav .menu-logo img {
                 height: 20px;
-            }
-
-            nav .social-links {
-                padding: var(--nav-section-padding-mobile) 0;
-            }
-            
-            nav .menu-logo {
-                padding: var(--nav-section-padding-mobile) 0;
-                margin-bottom: var(--nav-section-margin-bottom-mobile);
-            }
-
-            nav {
-                top: var(--header-height-mobile);
-                height: calc(100% - var(--header-height-mobile));
-                padding-top: 15px;
             }
             
             nav .external-links {
@@ -449,7 +445,7 @@
         <div class="menu-links">
             <a href="#">Home</a>
             <a href="#">About Us</a>
-            <a href="#">Content</a>
+            <a href="#">Programs</a>
         </div>
         <div class="social-links">
             <a href="https://www.instagram.com/chopstickstory/" title="Instagram" target="_blank">
