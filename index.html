@@ -122,7 +122,7 @@
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
         }
 
         nav.active {
@@ -130,7 +130,7 @@
         }
 
         nav .menu-links {
-            flex-grow: 0;
+            flex-grow: 1;
         }
 
         nav .menu-links a {
@@ -139,6 +139,7 @@
             text-decoration: none;
             color: #333;
             font-size: 1.1rem;
+            font-weight: 600;
             transition: background-color 0.3s;
             position: relative;
             z-index: 1001;
@@ -147,7 +148,7 @@
 
         nav .social-links {
             flex-grow: 0;
-            padding-bottom: 80px;
+            /* padding-bottom: 10px; */
             display: flex;
             justify-content: center;
             gap: 25px;
@@ -165,6 +166,27 @@
         nav .menu-links a:hover {
             background-color: #f5f5f5;
             color: #2563eb;
+        }
+
+        nav .menu-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        nav .menu-logo a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        nav .menu-logo img {
+            height: 25px;
+            width: auto;
+            object-fit: contain;
         }
 
         /* Overlay */
@@ -326,6 +348,26 @@
             .logo a {
                 font-size: 1.1rem;
             }
+
+            nav .menu-logo {
+                padding: 10px 0;
+            }
+            
+            nav .menu-logo a {
+                font-size: 0.8rem;
+            }
+            
+            nav .menu-logo img {
+                height: 20px;
+            }
+
+            nav .social-links {
+                padding-bottom: 10px;
+            }
+            
+            nav .menu-logo {
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
@@ -334,10 +376,8 @@
         <div class="header-content">
             <div class="logo">
                 <a href="index.html">
-                    <img 
-                    src="./images/STAMP-LOGO.webp"
-                    class="logo-img"/>
-                    CHOPSTICKSTORY
+                    <img src="./images/STAMP-LOGO.webp" class="logo-img"/>
+                    <p>CHOPSTICKSTORY</p>
                 </a>
             </div>
             <div class="hamburger">
@@ -364,6 +404,12 @@
             </a>
             <a href="#" title="Youtube">
                 <i class="fa-brands fa-youtube fa-xl"></i>
+            </a>
+        </div>
+        <div class="menu-logo">
+            <a href="index.html">
+                <img src="./images/STAMP-LOGO.webp" class="logo-img">
+                <p>CHOPSTICKSTORY</p>
             </a>
         </div>
     </nav>
