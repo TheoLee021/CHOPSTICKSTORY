@@ -52,6 +52,7 @@
             align-items: center;
             gap: 5px;
             font-weight: 600;
+            font-size: 1.3rem;
         }
 
         .logo img {
@@ -187,7 +188,7 @@
 
         /* Main Content Styles */
         main {
-            margin-top: 5rem;
+            margin-top: 6rem;
             flex: 1;
         }
 
@@ -229,7 +230,7 @@
 
         /* Slider */
         .slider-container {
-            height: calc(100vh - 5rem);
+            height: calc(100vh - 6rem);
             overflow-x: auto;
             overflow-y: hidden;
             scroll-snap-type: x mandatory;
@@ -305,6 +306,15 @@
 
         /* Add media query for mobile devices */
         @media (max-width: 768px) {
+            main {
+                margin-top: 5.5rem;
+                flex: 1;
+            }
+            
+            .slider-container {
+                height: calc(100vh - 5.5rem);
+            }
+
             .logo {
                 max-width: 70%;
             }
@@ -314,8 +324,10 @@
             }
             
             .logo a {
-                font-size: 0.9rem;
+                font-size: 1.1rem;
             }
+
+
         }
     </style>
 </head>
