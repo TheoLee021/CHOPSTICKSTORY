@@ -320,21 +320,50 @@
             font-size: 14px;
         }
 
-        @media (min-width: 769px) {
+        nav .external-links {
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        nav .external-links a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            color: #333;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            justify-content: space-between;
+        }
+
+        nav .external-links a i:first-child {
+            width: 20px;
+            text-align: center;
+        }
+
+        nav .external-links a i:last-child {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-left: auto;
+        }
+
+        /* @media (min-width: 769px) {
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
-        }
+        } */
 
         /* Add media query for mobile devices */
         @media (max-width: 768px) {
             main {
-                margin-top: 5rem;
+                margin-top: 4.5rem;
                 flex: 1;
             }
             
             .slider-container {
-                height: calc(100vh - 5rem);
+                height: calc(100vh - 4.5rem);
             }
 
             .logo {
@@ -368,35 +397,6 @@
             nav .menu-logo {
                 margin-bottom: 15px;
             }
-        }
-
-        nav .external-links {
-            padding: 15px 0;
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        nav .external-links a {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 8px 15px;
-            color: #333;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            justify-content: space-between;
-        }
-
-        nav .external-links a i:first-child {
-            width: 20px;
-            text-align: center;
-        }
-
-        nav .external-links a i:last-child {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-left: auto;
         }
 
         @media (max-width: 768px) {
