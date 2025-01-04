@@ -235,11 +235,6 @@
             -ms-overflow-style: none;
             position: relative;
             scroll-behavior: smooth;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            touch-action: pan-y pinch-zoom;
         }
 
         .slider-container::-webkit-scrollbar {
@@ -498,82 +493,6 @@
         // Handle touch events
         sliderContainer.addEventListener('touchstart', stopAutoSlide);
         sliderContainer.addEventListener('touchend', startAutoSlide);
-
-        // Drag to slide functionality
-        let isDragging = false;
-        let startPos = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-        let animationID = 0;
-        let currentIndex = 0;
-        let lastDragTime = 0;
-
-        // Mouse events
-        sliderContainer.addEventListener('mousedown', dragStart);
-        sliderContainer.addEventListener('mousemove', drag);
-        sliderContainer.addEventListener('mouseup', dragEnd);
-        sliderContainer.addEventListener('mouseleave', dragEnd);
-
-        // Touch events
-        sliderContainer.addEventListener('touchstart', dragStart);
-        sliderContainer.addEventListener('touchmove', drag);
-        sliderContainer.addEventListener('touchend', dragEnd);
-
-        function dragStart(event) {
-            // Stop auto slide during drag
-            stopAutoSlide();
-            
-            // Get start position
-            startPos = getPositionX(event);
-            isDragging = true;
-            lastDragTime = new Date().getTime();
-            
-            // Stop any ongoing smooth scroll
-            sliderContainer.style.scrollBehavior = 'auto';
-        }
-
-        function drag(event) {
-            if (isDragging) {
-                const currentPosition = getPositionX(event);
-                const diff = currentPosition - startPos;
-                
-                // Update scroll position
-                sliderContainer.scrollLeft -= diff;
-                startPos = currentPosition;
-            }
-        }
-
-        function dragEnd() {
-            isDragging = false;
-            const dragEndTime = new Date().getTime();
-            
-            // Re-enable smooth scrolling
-            sliderContainer.style.scrollBehavior = 'smooth';
-            
-            // Calculate which slide to snap to
-            const slideWidth = sliderContainer.clientWidth;
-            const currentScroll = sliderContainer.scrollLeft;
-            const targetSlide = Math.round(currentScroll / slideWidth);
-            
-            sliderContainer.scrollTo({
-                left: targetSlide * slideWidth,
-                behavior: 'smooth'
-            });
-            
-            // Update current slide and navigation bars
-            currentSlide = targetSlide + 1;
-            updatebars();
-            
-            // Restart auto slide after a short delay
-            setTimeout(startAutoSlide, 1000);
-        }
-
-        function getPositionX(event) {
-            return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-        }
-
-        // Prevent default dragging behavior
-        sliderContainer.addEventListener('dragstart', (e) => e.preventDefault());
     </script>
     <script src="https://kit.fontawesome.com/b3f4de9307.js" 
     crossorigin="anonymous"
