@@ -112,6 +112,9 @@
         :root {
             --header-height: 82px;
             --header-height-mobile: 72px;
+            --nav-section-padding: 10px;
+            --nav-section-padding-mobile: 8px;
+            --nav-section-margin-bottom: 20px;
         }
 
         /* Navigation Menu */
@@ -128,7 +131,7 @@
             padding-top: 20px;
             padding-bottom: env(safe-area-inset-bottom, 20px);
             transition: right 0.3s ease;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            /* box-shadow: -2px 0 5px rgba(0,0,0,0.1); */
             z-index: 1000;
             display: flex;
             flex-direction: column;
@@ -158,7 +161,7 @@
 
         nav .social-links {
             flex-grow: 0;
-            /* padding-bottom: 10px; */
+            padding: var(--nav-section-padding) 0;
             display: flex;
             justify-content: center;
             gap: 25px;
@@ -178,11 +181,41 @@
             color: #2563eb;
         }
 
+        nav .external-links {
+            padding: var(--nav-section-padding) 0;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        nav .external-links a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            color: #333;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            justify-content: space-between;
+        }
+
+        nav .external-links a i:first-child {
+            width: 20px;
+            text-align: center;
+        }
+
+        nav .external-links a i:last-child {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-left: auto;
+        }
+
         nav .menu-logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px 0;
+            padding: var(--nav-section-padding) 0;
+            margin-bottom: var(--nav-section-margin-bottom);
         }
 
         nav .menu-logo a {
@@ -330,35 +363,6 @@
             font-size: 14px;
         }
 
-        nav .external-links {
-            padding: 15px 0;
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        nav .external-links a {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 8px 15px;
-            color: #333;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            justify-content: space-between;
-        }
-
-        nav .external-links a i:first-child {
-            width: 20px;
-            text-align: center;
-        }
-
-        nav .external-links a i:last-child {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-left: auto;
-        }
-
         /* Add media query for mobile devices */
         @media (max-width: 768px) {
             main {
@@ -382,7 +386,7 @@
             }
 
             nav .menu-logo {
-                padding: 10px 0;
+                padding: var(--nav-section-padding-mobile) 0;
             }
             
             nav .menu-logo a {
@@ -394,11 +398,11 @@
             }
 
             nav .social-links {
-                padding-bottom: 10px;
+                padding: var(--nav-section-padding-mobile) 0;
             }
             
             nav .menu-logo {
-                margin-bottom: 15px;
+                padding: var(--nav-section-padding-mobile) 0;
             }
 
             nav {
@@ -408,7 +412,7 @@
             }
             
             nav .external-links {
-                padding: 10px 0;
+                padding: var(--nav-section-padding-mobile) 0;
             }
             
             nav .external-links a {
@@ -444,7 +448,6 @@
             <a href="#">Home</a>
             <a href="#">About Us</a>
             <a href="#">Content</a>
-            <a href="#">Donation</a>
         </div>
         <div class="social-links">
             <a href="https://www.instagram.com/chopstickstory/" title="Instagram" target="_blank">
