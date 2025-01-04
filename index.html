@@ -369,6 +369,45 @@
                 margin-bottom: 15px;
             }
         }
+
+        nav .external-links {
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        nav .external-links a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            color: #333;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            justify-content: space-between;
+        }
+
+        nav .external-links a i:first-child {
+            width: 20px;
+            text-align: center;
+        }
+
+        nav .external-links a i:last-child {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-left: auto;
+        }
+
+        @media (max-width: 768px) {
+            nav .external-links {
+                padding: 10px 0;
+            }
+            
+            nav .external-links a {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -396,7 +435,7 @@
             <a href="#">Donation</a>
         </div>
         <div class="social-links">
-            <a href="#" title="Instagram">
+            <a href="https://www.instagram.com/chopstickstory/" title="Instagram" target="_blank">
                 <i class="fa-brands fa-instagram fa-xl"></i>
             </a>
             <a href="#" title="Linkedin">
@@ -404,6 +443,18 @@
             </a>
             <a href="#" title="Youtube">
                 <i class="fa-brands fa-youtube fa-xl"></i>
+            </a>
+        </div>
+        <div class="external-links">
+            <a href="mailto:info@chopstickstory.org" target="_blank">
+                <i class="fa-regular fa-envelope"></i>
+                Contact
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+            </a>
+            <a href="https://www.paypal.com/donate/?hosted_button_id=WZK3AX6WV9RMC" target="_blank">
+                <i class="fa-brands fa-paypal"></i>
+                Donation
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
             </a>
         </div>
         <div class="menu-logo">
