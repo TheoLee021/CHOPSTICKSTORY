@@ -1,34 +1,580 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Chopstick Story</title>
+    <title>Homepage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none; /* remove underline */
+            color: black;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-weight: 600;
+        }
+
+        .logo img {
+            width: 100%;
+            max-height: 50px;
+            object-fit: contain;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            width: 25px;
+            height: 20px;
+            position: relative;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: #333;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 4px;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 8px;
+            opacity: 0;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 15px;
+        }
+
+        /* Hamburger Animation */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(15deg);
+            top: 6px;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-15deg);
+            top: 12px;
+        }
+
+        /* Navigation Menu */
+        nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100vh;
+            background: white;
+            padding-top: 60px;
+            transition: right 0.3s ease;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        nav.active {
+            right: 0;
+        }
+
+        nav .menu-links {
+            flex-grow: 0;
+        }
+
+        nav .menu-links a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+            position: relative;
+            z-index: 1001;
+            cursor: pointer;
+        }
+
+        nav .social-links {
+            flex-grow: 0;
+            padding-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav .social-links a {
+            display: block;
+            padding: 5px 5px;
+            text-decoration: none;
+            color: #333;
+            /* font-size: 1.1rem; */
+            transition: all 0.3s ease;
+        }
+
+        nav .menu-links a:hover {
+            background-color: #f5f5f5;
+            color: #2563eb;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Main Content Styles */
+        main {
+            margin-top: 5.5rem;
+            flex: 1;
+        }
+
+        /* Slider Navigation */
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            z-index: 100;
+            padding: 10px 15px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0);
+        }
+
+        .slider-bar {
+            width: 30px;
+            height: 4px;
+            /* border-radius: 2px; */
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* border: 2px solid white; */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-bar:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
+        }
+
+        .slider-bar.active {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        /* Slider */
+        .slider-container {
+            height: calc(100vh - 5.5rem);
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            display: flex;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            position: relative;
+            scroll-behavior: smooth;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            touch-action: pan-y pinch-zoom;
+        }
+
+        .slider-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            height: 100%;
+            overflow: hidden;
+            min-width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none; /* 이미지 드래그 방지 */
+            user-select: none; /* 이미지 선택 방지 */
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (min-width: 769px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header class="screen-header">
-            <a href="home.html">
-                <h1 class="screen-header__logo">Chopstick Story</h1>
-            </a>
-            <div class="screen-header__title">
-                <a href="about_us.html">
-                    <div>About Us</div>
-                </a>
-                <a href="workshop.html">
-                    <div>Workshop</div>
-                </a>
-                <a href="contact.html">
-                    <div>Contact</div>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <a href="home2.html">
+                    <img 
+                    src="/Users/theo/Documents/GitHub/ChopsticStory/images/STAMP-LOGO.webp"
+                    class="logo-img"/>
+                    CHOPSTICKSTORY
                 </a>
             </div>
-            <div class="screen-header__menu">
-                <i class="fa-solid fa-bars fa-xl"></i>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </header>
-    </div>
+        </div>
+    </header>
 
+    <nav>
+        <div class="menu-links">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Content</a>
+            <a href="#">Donation</a>
+        </div>
+        <div class="social-links">
+            <a href="#" title="Instagram">
+                <i class="fa-brands fa-instagram fa-xl"></i>
+            </a>
+            <a href="#" title="Linkedin">
+                <i class="fa-brands fa-linkedin-in fa-xl"></i>
+            </a>
+            <a href="#" title="Youtube">
+                <i class="fa-brands fa-youtube fa-xl"></i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="overlay"></div>
+
+    <main>
+        <div class="slider-wrapper">
+            <div class="slider-container">
+                <div class="slide" id="slide1">
+                    <img src="/api/placeholder/400/300" alt="Slide 1">
+                </div>
+                <div class="slide" id="slide2">
+                    <img src="/api/placeholder/400/300" alt="Slide 2">
+                </div>
+                <div class="slide" id="slide3">
+                    <img src="/api/placeholder/400/300" alt="Slide 3">
+                </div>
+                <div class="slide" id="slide4">
+                    <img src="/api/placeholder/400/300" alt="Slide 4">
+                </div>
+                <div class="slide" id="slide5">
+                    <img src="/api/placeholder/400/300" alt="Slide 5">
+                </div>
+            </div>
+            <div class="slider-nav">
+                <div class="slider-bar active" data-slide="1"></div>
+                <div class="slider-bar" data-slide="2"></div>
+                <div class="slider-bar" data-slide="3"></div>
+                <div class="slider-bar" data-slide="4"></div>
+                <div class="slider-bar" data-slide="5"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="org-info">
+                    <h3>CHOPSTICKSTORY</h3>
+                    <p>123 Street Name</p>
+                    <p>Cupertino, US</p>
+                    <p>Phone: (123) 456-7890</p>
+                    <p>Email: info@organization.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Chopstick Story. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        const overlay = document.querySelector('.overlay');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a nav link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu();
+            });
+        });
+
+        // Slider Navigation
+        const sliderContainer = document.querySelector('.slider-container');
+        const bars = document.querySelectorAll('.slider-bar');
+        let currentSlide = 1;
+
+        // Update active bar based on scroll position
+        sliderContainer.addEventListener('scroll', () => {
+            const slideWidth = sliderContainer.clientWidth;
+            currentSlide = Math.round(sliderContainer.scrollLeft / slideWidth) + 1;
+            updatebars();
+        });
+
+        // Handle bar clicks
+        bars.forEach(bar => {
+            bar.addEventListener('click', () => {
+                const slideNumber = bar.getAttribute('data-slide');
+                const slideWidth = sliderContainer.clientWidth;
+                sliderContainer.scrollTo({
+                    left: (slideNumber - 1) * slideWidth,
+                    behavior: 'smooth'
+                });
+                currentSlide = parseInt(slideNumber);
+                updatebars();
+            });
+        });
+
+        function updatebars() {
+            bars.forEach((bar, index) => {
+                if (index + 1 === currentSlide) {
+                    bar.classList.add('active');
+                } else {
+                    bar.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto slide variables
+        let autoSlideInterval;
+        const AUTO_SLIDE_INTERVAL = 3000; // Change slide every 3 seconds
+
+        // Start auto slide function
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                const slideWidth = sliderContainer.clientWidth;
+                const maxScroll = sliderContainer.scrollWidth - slideWidth;
+                
+                if (sliderContainer.scrollLeft >= maxScroll) {
+                    // If it's the last slide, return to the first
+                    sliderContainer.scrollTo({
+                        left: 0,
+                        behavior: 'smooth'
+                    });
+                    currentSlide = 1;
+                } else {
+                    // Move to next slide
+                    sliderContainer.scrollTo({
+                        left: sliderContainer.scrollLeft + slideWidth,
+                        behavior: 'smooth'
+                    });
+                    currentSlide++;
+                }
+                updatebars();
+            }, AUTO_SLIDE_INTERVAL);
+        }
+
+        // Stop auto slide function
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        // Stop auto slide when mouse enters slider
+        sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+
+        // Restart auto slide when mouse leaves slider
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+
+        // Start auto slide when page loads
+        startAutoSlide();
+
+        // Handle touch events
+        sliderContainer.addEventListener('touchstart', stopAutoSlide);
+        sliderContainer.addEventListener('touchend', startAutoSlide);
+
+        // Drag to slide functionality
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let animationID = 0;
+        let currentIndex = 0;
+        let lastDragTime = 0;
+
+        // Mouse events
+        sliderContainer.addEventListener('mousedown', dragStart);
+        sliderContainer.addEventListener('mousemove', drag);
+        sliderContainer.addEventListener('mouseup', dragEnd);
+        sliderContainer.addEventListener('mouseleave', dragEnd);
+
+        // Touch events
+        sliderContainer.addEventListener('touchstart', dragStart);
+        sliderContainer.addEventListener('touchmove', drag);
+        sliderContainer.addEventListener('touchend', dragEnd);
+
+        function dragStart(event) {
+            // Stop auto slide during drag
+            stopAutoSlide();
+            
+            // Get start position
+            startPos = getPositionX(event);
+            isDragging = true;
+            lastDragTime = new Date().getTime();
+            
+            // Stop any ongoing smooth scroll
+            sliderContainer.style.scrollBehavior = 'auto';
+        }
+
+        function drag(event) {
+            if (isDragging) {
+                const currentPosition = getPositionX(event);
+                const diff = currentPosition - startPos;
+                
+                // Update scroll position
+                sliderContainer.scrollLeft -= diff;
+                startPos = currentPosition;
+            }
+        }
+
+        function dragEnd() {
+            isDragging = false;
+            const dragEndTime = new Date().getTime();
+            
+            // Re-enable smooth scrolling
+            sliderContainer.style.scrollBehavior = 'smooth';
+            
+            // Calculate which slide to snap to
+            const slideWidth = sliderContainer.clientWidth;
+            const currentScroll = sliderContainer.scrollLeft;
+            const targetSlide = Math.round(currentScroll / slideWidth);
+            
+            sliderContainer.scrollTo({
+                left: targetSlide * slideWidth,
+                behavior: 'smooth'
+            });
+            
+            // Update current slide and navigation bars
+            currentSlide = targetSlide + 1;
+            updatebars();
+            
+            // Restart auto slide after a short delay
+            setTimeout(startAutoSlide, 1000);
+        }
+
+        function getPositionX(event) {
+            return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+        }
+
+        // Prevent default dragging behavior
+        sliderContainer.addEventListener('dragstart', (e) => e.preventDefault());
+    </script>
     <script src="https://kit.fontawesome.com/b3f4de9307.js" 
     crossorigin="anonymous"
     ></script>
