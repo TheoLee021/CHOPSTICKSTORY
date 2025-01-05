@@ -114,8 +114,8 @@
             --header-height-mobile: 72px;
             --nav-section-padding: 10px;
             --nav-section-padding-mobile: 8px;
-            --nav-section-margin-bottom: 20px;
-            --nav-section-margin-bottom-mobile: 15px;
+            --nav-section-margin-bottom: 15px;
+            --nav-section-margin-bottom-mobile: 10px;
         }
 
         /* Navigation Menu */
@@ -129,7 +129,7 @@
             /* max-height: -webkit-fill-available; */
             background: white;
             /* Remove padding-top since we moved nav below header */
-            padding-top: 20px;
+            padding-top: 0px;
             padding-bottom: env(safe-area-inset-bottom, 20px);
             transition: right 0.3s ease;
             /* box-shadow: -2px 0 5px rgba(0,0,0,0.1); */
@@ -149,10 +149,10 @@
 
         nav .menu-links a {
             display: block;
-            padding: 15px 25px;
+            padding: 20px 25px;
             text-decoration: none;
             color: #333;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             transition: background-color 0.3s;
             position: relative;
@@ -187,6 +187,7 @@
             display: flex;
             justify-content: center;
             gap: 5px;
+            margin-bottom: var(--nav-section-margin-bottom);
         }
 
         nav .external-links a {
@@ -211,7 +212,7 @@
             margin-left: auto;
         }
 
-        nav .menu-logo {
+        /* nav .menu-logo {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -231,7 +232,7 @@
             height: 25px;
             width: auto;
             object-fit: contain;
-        }
+        } */
 
         /* Overlay */
         .overlay {
@@ -389,16 +390,19 @@
             nav {
                 top: var(--header-height-mobile);
                 height: calc(100% - var(--header-height-mobile));
-                padding-top: 15px;
             }
 
             nav .social-links {
-                padding: var(--nav-section-padding-mobile) 0;
+                padding: var(--nav-section-padding) 0;
+            }
+            
+            nav .external-links {
+                padding: var(--nav-section-padding) 0;
             }
 
-            nav .menu-logo {
-                padding: var(--nav-section-padding-mobile) 0;
-                margin-bottom: var(--nav-section-margin-bottom-mobile);
+            /* nav .menu-logo {
+                padding: var(--nav-section-padding) 0;
+                margin-bottom: var(--nav-section-margin-bottom);
             }
             
             nav .menu-logo a {
@@ -407,15 +411,7 @@
             
             nav .menu-logo img {
                 height: 20px;
-            }
-            
-            nav .external-links {
-                padding: var(--nav-section-padding-mobile) 0;
-            }
-            
-            nav .external-links a {
-                font-size: 0.85rem;
-            }
+            } */
 
             .overlay {
                 top: var(--header-height-mobile);
@@ -470,12 +466,12 @@
                 <i class="fa-solid fa-arrow-up-from-bracket"></i>
             </a>
         </div>
-        <div class="menu-logo">
+        <!-- <div class="menu-logo">
             <a href="index.html">
                 <img src="./images/STAMP-LOGO.webp" class="logo-img">
                 <p>CHOPSTICKSTORY</p>
             </a>
-        </div>
+        </div> -->
     </nav>
 
     <div class="overlay"></div>
