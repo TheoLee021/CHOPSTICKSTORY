@@ -43,17 +43,32 @@
     background-color: #f5f5f5;
 }
 
-.team-section h2 {
+.team-section > h2 {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+}
+
+.team-category {
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+}
+
+.team-category:last-child {
+    margin-bottom: 0;
+}
+
+.team-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: #333;
 }
 
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    justify-items: center;
 }
 
 .team-member {
@@ -68,7 +83,7 @@
     margin-bottom: 1.5rem;
 }
 
-.team-member h3 {
+.team-member h4 {
     margin: 0;
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
@@ -82,20 +97,12 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .about-main {
-        margin-top: var(--header-height-mobile);
-    }
-
-    .mission-vision {
-        grid-template-columns: 1fr;
-    }
-
-    .org-intro {
-        padding: 2rem 1rem;
-    }
-
     .team-section {
         padding: 2rem 1rem;
+    }
+
+    .team-category {
+        margin-bottom: 3rem;
     }
 
     .team-member img {
