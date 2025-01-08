@@ -31,10 +31,16 @@
 }
 
 .mission-vision {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 3rem auto 0;
+}
+
+.mission, .vision {
+    text-align: center;
+    padding: 0 1rem;
 }
 
 /* Team section */
@@ -66,9 +72,9 @@
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
     gap: 3rem;
-    justify-items: center;
+    justify-content: center;
 }
 
 .team-member {
@@ -97,6 +103,11 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .about-main {
+        margin-top: var(--header-height-mobile);
+        padding: 0;
+    }
+    
     .team-section {
         padding: 2rem 1rem;
     }
@@ -108,5 +119,9 @@
     .team-member img {
         width: 150px;
         height: 150px;
+    }
+
+    .mission-vision {
+        gap: 2rem;
     }
 } 
