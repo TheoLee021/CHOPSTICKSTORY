@@ -25,11 +25,25 @@ const sliderContainer = document.querySelector('.slider-container');
 const bars = document.querySelectorAll('.slider-bar');
 let currentSlide = 1;
 
-// Initialize slider position to first real slide
-window.addEventListener('load', () => {
+// Clone first and last slides dynamically
+function setupInfiniteSlider() {
+    const slides = Array.from(sliderContainer.children);
+    const firstSlideClone = slides[0].cloneNode(true);
+    const lastSlideClone = slides[slides.length - 1].cloneNode(true);
+    
+    firstSlideClone.id = 'slide1-clone';
+    lastSlideClone.id = 'slide5-clone';
+    
+    sliderContainer.appendChild(firstSlideClone);
+    sliderContainer.insertBefore(lastSlideClone, slides[0]);
+    
+    // Initialize slider position to first real slide
     const slideWidth = sliderContainer.clientWidth;
     sliderContainer.scrollLeft = slideWidth;
-});
+}
+
+// Initialize infinite slider after page load
+window.addEventListener('load', setupInfiniteSlider);
 
 // Handle infinite scroll
 sliderContainer.addEventListener('scroll', () => {
