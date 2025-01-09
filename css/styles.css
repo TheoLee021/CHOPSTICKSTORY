@@ -45,8 +45,8 @@ header {
     object-fit: contain;
 }
 
-/* Hamburger Menu Styles */
-.hamburger {
+/* Chopsticks Menu Styles */
+.chopsticks {
     width: 25px;
     height: 20px;
     position: relative;
@@ -54,7 +54,7 @@ header {
     z-index: 1001;
 }
 
-.hamburger span {
+.chopsticks span {
     display: block;
     position: absolute;
     height: 2px;
@@ -64,30 +64,30 @@ header {
     transition: all 0.3s ease;
 }
 
-.hamburger span:nth-child(1) {
+.chopsticks span:nth-child(1) {
     top: 4px;
 }
 
-.hamburger span:nth-child(2) {
+.chopsticks span:nth-child(2) {
     top: 8px;
     opacity: 0;
 }
 
-.hamburger span:nth-child(3) {
+.chopsticks span:nth-child(3) {
     top: 15px;
 }
 
-/* Hamburger Animation */
-.hamburger.active span:nth-child(1) {
+/* Chopsticks Animation */
+.chopsticks.active span:nth-child(1) {
     transform: rotate(15deg);
     top: 6px;
 }
 
-.hamburger.active span:nth-child(2) {
+.chopsticks.active span:nth-child(2) {
     opacity: 0;
 }
 
-.hamburger.active span:nth-child(3) {
+.chopsticks.active span:nth-child(3) {
     transform: rotate(-15deg);
     top: 12px;
 }

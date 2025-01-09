@@ -1,15 +1,15 @@
-const hamburger = document.querySelector('.hamburger');
+const chopsticks = document.querySelector('.chopsticks');
 const nav = document.querySelector('nav');
 const overlay = document.querySelector('.overlay');
 
 function toggleMenu() {
-    hamburger.classList.toggle('active');
+    chopsticks.classList.toggle('active');
     nav.classList.toggle('active');
     overlay.classList.toggle('active');
     document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
 }
 
-hamburger.addEventListener('click', toggleMenu);
+chopsticks.addEventListener('click', toggleMenu);
 overlay.addEventListener('click', toggleMenu);
 
 // Close menu when clicking a nav link
