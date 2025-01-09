@@ -22,6 +22,7 @@ navLinks.forEach(link => {
 
 // Slider Navigation
 const sliderContainer = document.querySelector('.slider-container');
+const sliderWrapper = document.querySelector('.slider-wrapper');
 const bars = document.querySelectorAll('.slider-bar');
 let currentSlide = 1;
 
@@ -52,11 +53,8 @@ sliderContainer.addEventListener('scroll', () => {
     
     // If we're at the clone of the last slide (beginning)
     if (sliderContainer.scrollLeft === 0) {
-        // Disable smooth scrolling temporarily
         sliderContainer.style.scrollBehavior = 'auto';
-        // Jump to the real last slide
         sliderContainer.scrollLeft = maxScroll - slideWidth;
-        // Re-enable smooth scrolling
         setTimeout(() => {
             sliderContainer.style.scrollBehavior = 'smooth';
         }, 10);
@@ -64,11 +62,8 @@ sliderContainer.addEventListener('scroll', () => {
     }
     // If we're at the clone of the first slide (end)
     else if (sliderContainer.scrollLeft === maxScroll) {
-        // Disable smooth scrolling temporarily
         sliderContainer.style.scrollBehavior = 'auto';
-        // Jump to the real first slide
         sliderContainer.scrollLeft = slideWidth;
-        // Re-enable smooth scrolling
         setTimeout(() => {
             sliderContainer.style.scrollBehavior = 'smooth';
         }, 10);
@@ -87,17 +82,14 @@ bars.forEach(bar => {
         const slideNumber = parseInt(bar.getAttribute('data-slide'));
         const slideWidth = sliderContainer.clientWidth;
         
-        // Add 1 to account for the cloned slide at the beginning
         sliderContainer.scrollTo({
             left: slideWidth * slideNumber,
             behavior: 'smooth'
         });
         
-        // Update current slide
         currentSlide = slideNumber;
         updatebars();
         
-        // Stop and restart auto slide
         stopAutoSlide();
         setTimeout(startAutoSlide, 0);
     });
@@ -115,14 +107,11 @@ function updatebars() {
 
 // Auto slide variables
 let autoSlideInterval;
-const AUTO_SLIDE_INTERVAL = 3000; // Change slide every 3 seconds
+const AUTO_SLIDE_INTERVAL = 3000;
 
-// Start auto slide function
 function startAutoSlide() {
-    // Clear any existing interval first
     stopAutoSlide();
     
-    // Start new interval
     autoSlideInterval = setInterval(() => {
         const slideWidth = sliderContainer.clientWidth;
         const maxScroll = sliderContainer.scrollWidth - slideWidth;
@@ -134,7 +123,6 @@ function startAutoSlide() {
             });
             currentSlide = 1;
         } else {
-            // Move to next slide
             sliderContainer.scrollTo({
                 left: sliderContainer.scrollLeft + slideWidth,
                 behavior: 'smooth'
@@ -145,22 +133,23 @@ function startAutoSlide() {
     }, AUTO_SLIDE_INTERVAL);
 }
 
-// Stop auto slide function
 function stopAutoSlide() {
     clearInterval(autoSlideInterval);
 }
 
-// Stop auto slide when mouse enters slider
-sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+// Stop auto slide when mouse enters slider wrapper
+sliderWrapper.addEventListener('mouseenter', stopAutoSlide);
 
-// Restart auto slide when mouse leaves slider
-sliderContainer.addEventListener('mouseleave', () => {
+// Restart auto slide when mouse leaves slider wrapper
+sliderWrapper.addEventListener('mouseleave', () => {
+    setTimeout(startAutoSlide, 0);
+});
+
+// Handle touch events
+sliderWrapper.addEventListener('touchstart', stopAutoSlide);
+sliderWrapper.addEventListener('touchend', () => {
     setTimeout(startAutoSlide, 0);
 });
 
 // Start auto slide when page loads
 startAutoSlide();
-
-// Handle touch events
-sliderContainer.addEventListener('touchstart', stopAutoSlide);
-sliderContainer.addEventListener('touchend', startAutoSlide);
