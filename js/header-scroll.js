@@ -3,16 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastScrollY = window.scrollY;
     let ticking = false;
 
-    // 스크롤 방향에 따라 헤더 표시/숨김 처리
+    // Handle header visibility based on scroll direction
     const updateHeader = () => {
         const currentScrollY = window.scrollY;
 
-        // 스크롤 방향 확인
+        // Check scroll direction
         if (currentScrollY > lastScrollY) {
-            // 아래로 스크롤
+            // Scrolling down
             header.classList.add('header--hidden');
         } else {
-            // 위로 스크롤
+            // Scrolling up
             header.classList.remove('header--hidden');
         }
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ticking = false;
     };
 
-    // 스크롤 이벤트 최적화
+    // Optimize scroll event
     window.addEventListener('scroll', () => {
         if (!ticking) {
             window.requestAnimationFrame(() => {
