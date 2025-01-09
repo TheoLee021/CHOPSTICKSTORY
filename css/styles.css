@@ -17,6 +17,7 @@ header {
     background: rgba(255, 255, 255, 1);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     z-index: 1000;
+    transition: transform 0.8s ease;
 }
 
 .header-content {
@@ -271,6 +272,7 @@ main {
     height: 100%;
     overflow: hidden;
     min-width: 100%;
+    position: relative;
 }
 
 .slide img {
@@ -279,6 +281,59 @@ main {
     object-fit: cover;
     pointer-events: none; /* 이미지 드래그 방지 */
     user-select: none; /* 이미지 선택 방지 */
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    max-width: 500px;
+    color: white;
+}
+
+#slide4 .slide-content {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    bottom: auto;
+    text-align: center;
+}
+
+.slide-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.slide-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: #1f2937;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.slide-btn:hover {
+    background: #2563eb;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.slide-btn i {
+    transition: transform 0.3s ease;
+}
+
+.slide-btn:hover i {
+    transform: translateX(4px);
 }
 
 /* Footer Styles */
@@ -356,4 +411,29 @@ footer {
     .overlay {
         top: var(--header-height-mobile);
     }
+
+    .slide-content {
+        left: 5%;
+        right: 5%;
+        bottom: 15%;
+    }
+
+    #slide4 .slide-content {
+        left: 50%;
+        right: auto;
+        bottom: auto;
+    }
+
+    .slide-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .slide-content p {
+        font-size: 1rem;
+    }
+}
+
+/* 헤더 숨김 클래스 */
+.header--hidden {
+    transform: translateY(-100%);
 }
