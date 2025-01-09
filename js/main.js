@@ -91,7 +91,6 @@ bars.forEach(bar => {
         updatebars();
         
         stopAutoSlide();
-        setTimeout(startAutoSlide, 0);
     });
 });
 
