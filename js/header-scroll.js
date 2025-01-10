@@ -7,8 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateHeader = () => {
         const currentScrollY = window.scrollY;
 
-        // Check scroll direction
-        if (currentScrollY > lastScrollY) {
+        // Check scroll direction and position
+        if (currentScrollY <= 0) {
+            // At the top of the page
+            header.classList.remove('header--hidden');
+        } else if (currentScrollY > lastScrollY) {
             // Scrolling down
             header.classList.add('header--hidden');
         } else {
