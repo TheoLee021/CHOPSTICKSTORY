@@ -52,11 +52,16 @@
 .team-section > h2 {
     text-align: center;
     margin-bottom: 4rem;
+    font-size: 2.5rem;
 }
 
 .team-category {
     max-width: 1000px;
     margin: 0 auto 4rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .team-category:last-child {
@@ -65,10 +70,24 @@
 
 .team-title {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     font-size: 1.5rem;
     color: #333;
+    position: relative;
+    padding-bottom: 1rem;
 }
+
+/* 제목 밑에 장식선 추가 */
+/* .team-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1.5px;
+    background: black;
+} */
 
 .team-grid {
     display: grid;
@@ -79,7 +98,12 @@
 
 .team-member {
     text-align: center;
+    transition: transform 0.3s ease;
 }
+
+/* .team-member:hover {
+    transform: translateY(-5px);
+} */
 
 .team-member img {
     width: 180px;
@@ -87,18 +111,24 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .team-member h4 {
     margin: 0;
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
+    color: #1f2937;
 }
 
 .team-member .position {
-    color: #666;
+    color: #4b5563;
     font-size: 0.9rem;
     margin: 0;
+    /* padding: 0.3rem 1rem; */
+    /* background: #f3f4f6; */
+    /* border-radius: 20px; */
+    /* display: inline-block; */
 }
 
 /* Mobile Responsive */
@@ -113,7 +143,8 @@
     }
 
     .team-category {
-        margin-bottom: 3rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .team-member img {
