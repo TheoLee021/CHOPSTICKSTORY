@@ -304,7 +304,7 @@ main {
     left: 10%;
     max-width: 500px;
     color: white;
-    z-index: 2; /* 오버레이 위에 표시되도록 */
+    z-index: 2;
 }
 
 #slide4 .slide-content {
@@ -318,16 +318,16 @@ main {
 .slide-content h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-weight: 700; /* 글자 두께 증가 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
 }
 
 .slide-content p {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     line-height: 1.4;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    font-weight: 500; /* 글자 두께 약간 증가 */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
 }
 
 .slide-btn {
