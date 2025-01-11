@@ -20,135 +20,154 @@ navLinks.forEach(link => {
     });
 });
 
-// Slider Navigation
-const sliderContainer = document.querySelector('.slider-container');
-const sliderWrapper = document.querySelector('.slider-wrapper');
-const bars = document.querySelectorAll('.slider-bar');
-let currentSlide = 1;
+// Dropdown Menu functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdowns = document.querySelectorAll('.dropdown');
 
-// Clone first and last slides dynamically
-function setupInfiniteSlider() {
-    const slides = Array.from(sliderContainer.children);
-    const firstSlideClone = slides[0].cloneNode(true);
-    const lastSlideClone = slides[slides.length - 1].cloneNode(true);
-    
-    firstSlideClone.id = 'slide1-clone';
-    lastSlideClone.id = 'slide5-clone';
-    
-    sliderContainer.appendChild(firstSlideClone);
-    sliderContainer.insertBefore(lastSlideClone, slides[0]);
-    
-    // Initialize slider position to first real slide
-    const slideWidth = sliderContainer.clientWidth;
-    sliderContainer.scrollLeft = slideWidth;
-}
-
-// Initialize infinite slider after page load
-window.addEventListener('load', setupInfiniteSlider);
-
-// Handle infinite scroll
-sliderContainer.addEventListener('scroll', () => {
-    const slideWidth = sliderContainer.clientWidth;
-    const maxScroll = sliderContainer.scrollWidth - slideWidth;
-    
-    // If we're at the clone of the last slide (beginning)
-    if (sliderContainer.scrollLeft === 0) {
-        sliderContainer.style.scrollBehavior = 'auto';
-        sliderContainer.scrollLeft = maxScroll - slideWidth;
-        setTimeout(() => {
-            sliderContainer.style.scrollBehavior = 'smooth';
-        }, 10);
-        currentSlide = 5;
-    }
-    // If we're at the clone of the first slide (end)
-    else if (sliderContainer.scrollLeft === maxScroll) {
-        sliderContainer.style.scrollBehavior = 'auto';
-        sliderContainer.scrollLeft = slideWidth;
-        setTimeout(() => {
-            sliderContainer.style.scrollBehavior = 'smooth';
-        }, 10);
-        currentSlide = 1;
-    }
-    // Update current slide based on scroll position
-    else {
-        currentSlide = Math.round(sliderContainer.scrollLeft / slideWidth);
-    }
-    updatebars();
-});
-
-// Handle bar clicks with infinite loop
-bars.forEach(bar => {
-    bar.addEventListener('click', () => {
-        const slideNumber = parseInt(bar.getAttribute('data-slide'));
-        const slideWidth = sliderContainer.clientWidth;
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.dropdown-trigger');
         
-        sliderContainer.scrollTo({
-            left: slideWidth * slideNumber,
-            behavior: 'smooth'
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            // Toggle current dropdown
+            dropdown.classList.toggle('active');
         });
-        
-        currentSlide = slideNumber;
-        updatebars();
-        
-        stopAutoSlide();
     });
 });
 
-function updatebars() {
-    bars.forEach((bar, index) => {
-        if (index + 1 === currentSlide) {
-            bar.classList.add('active');
-        } else {
-            bar.classList.remove('active');
-        }
-    });
-}
+// Slider code should only run if slider exists
+if (document.querySelector('.slider-container')) {
+    // Slider Navigation
+    const sliderContainer = document.querySelector('.slider-container');
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    const bars = document.querySelectorAll('.slider-bar');
+    let currentSlide = 1;
 
-// Auto slide variables
-let autoSlideInterval;
-const AUTO_SLIDE_INTERVAL = 3000;
+    // Clone first and last slides dynamically
+    function setupInfiniteSlider() {
+        const slides = Array.from(sliderContainer.children);
+        const firstSlideClone = slides[0].cloneNode(true);
+        const lastSlideClone = slides[slides.length - 1].cloneNode(true);
+        
+        firstSlideClone.id = 'slide1-clone';
+        lastSlideClone.id = 'slide5-clone';
+        
+        sliderContainer.appendChild(firstSlideClone);
+        sliderContainer.insertBefore(lastSlideClone, slides[0]);
+        
+        // Initialize slider position to first real slide
+        const slideWidth = sliderContainer.clientWidth;
+        sliderContainer.scrollLeft = slideWidth;
+    }
 
-function startAutoSlide() {
-    stopAutoSlide();
-    
-    autoSlideInterval = setInterval(() => {
+    // Initialize infinite slider after page load
+    window.addEventListener('load', setupInfiniteSlider);
+
+    // Handle infinite scroll
+    sliderContainer.addEventListener('scroll', () => {
         const slideWidth = sliderContainer.clientWidth;
         const maxScroll = sliderContainer.scrollWidth - slideWidth;
         
-        if (sliderContainer.scrollLeft >= maxScroll) {
-            sliderContainer.scrollTo({
-                left: slideWidth,
-                behavior: 'smooth'
-            });
+        // If we're at the clone of the last slide (beginning)
+        if (sliderContainer.scrollLeft === 0) {
+            sliderContainer.style.scrollBehavior = 'auto';
+            sliderContainer.scrollLeft = maxScroll - slideWidth;
+            setTimeout(() => {
+                sliderContainer.style.scrollBehavior = 'smooth';
+            }, 10);
+            currentSlide = 5;
+        }
+        // If we're at the clone of the first slide (end)
+        else if (sliderContainer.scrollLeft === maxScroll) {
+            sliderContainer.style.scrollBehavior = 'auto';
+            sliderContainer.scrollLeft = slideWidth;
+            setTimeout(() => {
+                sliderContainer.style.scrollBehavior = 'smooth';
+            }, 10);
             currentSlide = 1;
-        } else {
-            sliderContainer.scrollTo({
-                left: sliderContainer.scrollLeft + slideWidth,
-                behavior: 'smooth'
-            });
-            currentSlide++;
+        }
+        // Update current slide based on scroll position
+        else {
+            currentSlide = Math.round(sliderContainer.scrollLeft / slideWidth);
         }
         updatebars();
-    }, AUTO_SLIDE_INTERVAL);
+    });
+
+    // Handle bar clicks with infinite loop
+    bars.forEach(bar => {
+        bar.addEventListener('click', () => {
+            const slideNumber = parseInt(bar.getAttribute('data-slide'));
+            const slideWidth = sliderContainer.clientWidth;
+            
+            sliderContainer.scrollTo({
+                left: slideWidth * slideNumber,
+                behavior: 'smooth'
+            });
+            
+            currentSlide = slideNumber;
+            updatebars();
+            
+            stopAutoSlide();
+        });
+    });
+
+    function updatebars() {
+        bars.forEach((bar, index) => {
+            if (index + 1 === currentSlide) {
+                bar.classList.add('active');
+            } else {
+                bar.classList.remove('active');
+            }
+        });
+    }
+
+    // Auto slide variables
+    let autoSlideInterval;
+    const AUTO_SLIDE_INTERVAL = 3000;
+
+    function startAutoSlide() {
+        stopAutoSlide();
+        
+        autoSlideInterval = setInterval(() => {
+            const slideWidth = sliderContainer.clientWidth;
+            const maxScroll = sliderContainer.scrollWidth - slideWidth;
+            
+            if (sliderContainer.scrollLeft >= maxScroll) {
+                sliderContainer.scrollTo({
+                    left: slideWidth,
+                    behavior: 'smooth'
+                });
+                currentSlide = 1;
+            } else {
+                sliderContainer.scrollTo({
+                    left: sliderContainer.scrollLeft + slideWidth,
+                    behavior: 'smooth'
+                });
+                currentSlide++;
+            }
+            updatebars();
+        }, AUTO_SLIDE_INTERVAL);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Stop auto slide when mouse enters slider wrapper
+    sliderWrapper.addEventListener('mouseenter', stopAutoSlide);
+
+    // Restart auto slide when mouse leaves slider wrapper
+    sliderWrapper.addEventListener('mouseleave', () => {
+        setTimeout(startAutoSlide, 0);
+    });
+
+    // Handle touch events
+    sliderWrapper.addEventListener('touchstart', stopAutoSlide);
+    sliderWrapper.addEventListener('touchend', () => {
+        setTimeout(startAutoSlide, 0);
+    });
+
+    // Start auto slide when page loads
+    startAutoSlide();
 }
-
-function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-}
-
-// Stop auto slide when mouse enters slider wrapper
-sliderWrapper.addEventListener('mouseenter', stopAutoSlide);
-
-// Restart auto slide when mouse leaves slider wrapper
-sliderWrapper.addEventListener('mouseleave', () => {
-    setTimeout(startAutoSlide, 0);
-});
-
-// Handle touch events
-sliderWrapper.addEventListener('touchstart', stopAutoSlide);
-sliderWrapper.addEventListener('touchend', () => {
-    setTimeout(startAutoSlide, 0);
-});
-
-// Start auto slide when page loads
-startAutoSlide();

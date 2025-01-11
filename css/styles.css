@@ -99,12 +99,9 @@ nav {
     position: fixed;
     top: var(--header-height); /* Start below header */
     right: -100%;
-    width: 250px;
-    /* Adjust height to account for header */
+    width: 25%;
     height: calc(100% - var(--header-height));
-    /* max-height: -webkit-fill-available; */
     background: white;
-    /* Remove padding-top since we moved nav below header */
     padding-top: 0px;
     padding-bottom: env(safe-area-inset-bottom, 20px);
     transition: right 0.3s ease;
@@ -125,7 +122,7 @@ nav .menu-links {
 
 nav .menu-links a {
     display: block;
-    padding: 20px 25px;
+    margin: 20px 25px;
     text-decoration: none;
     color: #333;
     font-size: 1.2rem;
@@ -134,6 +131,7 @@ nav .menu-links a {
     position: relative;
     z-index: 1001;
     cursor: pointer;
+    width: fit-content;
 }
 
 nav .social-links {
@@ -153,10 +151,10 @@ nav .social-links a {
     transition: all 0.3s ease;
 }
 
-nav .menu-links a:hover {
+/* nav .menu-links a:hover {
     background-color: #f5f5f5;
     color: #2563eb;
-}
+} */
 
 nav .external-links {
     padding: var(--nav-section-padding) 0;
@@ -418,6 +416,7 @@ footer {
     nav {
         top: var(--header-height-mobile);
         height: calc(100% - var(--header-height-mobile));
+        width: 50%;
     }
 
     nav .social-links {
@@ -463,4 +462,54 @@ footer {
         rgba(0, 0, 0, 0.4),
         rgba(0, 0, 0, 0.2)
     );
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown-trigger {
+    background: none;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    color: inherit;
+}
+
+.dropdown-trigger i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.active .dropdown-trigger i {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    background: white;
+    /* padding: 0.5rem 0 0 0; */
+}
+
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    margin: 12px 25px 25px 40px !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    color: #4b5563 !important;
+    width: fit-content;
+}
+
+.dropdown-menu a:last-child {
+    margin-bottom: 15px !important;
 }
