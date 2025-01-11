@@ -416,7 +416,8 @@ footer {
     nav {
         top: var(--header-height-mobile);
         height: calc(100% - var(--header-height-mobile));
-        width: 50%;
+        width: var(--nav-width-mobile);
+        min-width: var(--nav-width-mobile-min);
     }
 
     nav .social-links {
