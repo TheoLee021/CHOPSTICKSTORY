@@ -453,7 +453,6 @@ footer {
     }
 }
 
-/* 헤더 숨김 클래스 */
 .header--hidden {
     transform: translateY(-100%);
 }
