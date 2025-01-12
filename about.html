@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about CHOPSTICKSTORY, a non-profit organization dedicated to sharing Korean culture. Meet our team and discover our mission to foster cultural understanding.">
+    <meta name="keywords" content="CHOPSTICKSTORY, Korean culture, non-profit organization, cultural education, team">
+    <meta name="author" content="CHOPSTICKSTORY">
+    <meta property="og:title" content="About Us - CHOPSTICKSTORY">
+    <meta property="og:description" content="Discover our mission to foster cultural understanding through Korean cultural education.">
+    <meta property="og:image" content="./images/STAMP-LOGO.webp">
+    <meta property="og:url" content="https://chopstickstory.org/about">
     <title>About Us - CHOPSTICKSTORY</title>
     <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="icon" type="image/webp" href="./images/STAMP-LOGO.webp">
 </head>
 <body>
     <header>
@@ -23,17 +31,17 @@
         </div>
     </header>
 
-    <nav>
+    <nav aria-label="Main navigation">
         <div class="menu-links">
             <a href="index.html">Home</a>
             <div class="dropdown">
                 <div class="dropdown-header">
-                    <a href="about.html" class="menu-link">About Us</a>
-                    <button class="dropdown-trigger">
-                        <i class="fa-solid fa-chevron-down"></i>
+                    <a href="about.html" class="menu-link" aria-current="page">About Us</a>
+                    <button class="dropdown-trigger" aria-label="Toggle About Us dropdown">
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                     </button>
                 </div>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu" aria-label="About Us submenu">
                     <a href="about.html#org-intro">About Chopstick Story</a>
                     <a href="about.html#team-section">Our Team</a>
                 </div>
@@ -81,12 +89,12 @@
     <div class="overlay"></div>
 
     <main class="about-main">
-        <section class="hero-section">
-            <img src="images/Sample/toa-heftiba-6bKpHAun4d8-unsplash.jpg" alt="About Us Hero Image">
+        <section class="hero-section" aria-label="Hero Image">
+            <img src="images/Sample/toa-heftiba-6bKpHAun4d8-unsplash.jpg" alt="Team members collaborating" loading="lazy">
         </section>
 
-        <section class="org-intro">
-            <h1>About Chopstick Story</h1>
+        <section class="org-intro" id="org-intro" aria-labelledby="about-heading">
+            <h1 id="about-heading">About Chopstick Story</h1>
             <p>We are a non-profit organization committed to fostering understanding of Korean culture through engaging programs and inspiring stories.</p>
             <div class="mission-vision">
                 <div class="mission">
