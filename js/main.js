@@ -24,7 +24,10 @@ navLinks.forEach(link => {
 document.addEventListener('DOMContentLoaded', () => {
     const dropdowns = document.querySelectorAll('.dropdown');
 
+    // Make all dropdowns active by default
     dropdowns.forEach(dropdown => {
+        dropdown.classList.add('active');
+        
         const trigger = dropdown.querySelector('.dropdown-trigger');
         
         trigger.addEventListener('click', (e) => {
