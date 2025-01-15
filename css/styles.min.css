@@ -4,26 +4,9 @@ body{font-family:Arial,sans-serif;min-height:100vh;display:flex;flex-direction:c
 a{text-decoration:none;color:#000}
 
 /* Variables */
-:root{
-    --header-h:80px;
-    --header-h-m:65px;
-    --nav-pad:10px;
-    --nav-mb:10px;
-    --nav-w:25%;
-    --nav-w-m:50%;
-    --nav-w-m-min:250px;
-    --shadow-sm:0 2px 4px rgba(0,0,0,.1);
-    --shadow-md:0 4px 6px rgba(0,0,0,.1);
-    --shadow-lg:0 4px 10px rgba(0,0,0,.1);
-    --trans:0.3s ease;
-    --color-primary:#2563eb;
-    --color-text:#333;
-    --color-text-light:#4b5563;
-    --color-bg:#f8f9fa;
-    --color-border:#e5e7eb;
-}
+:root{--header-height:80px;--nav-width-min:250px;--nav-width:25%;--header-h:80px;--header-h-m:65px;--nav-pad:10px;--nav-mb:10px;--nav-w:25%;--nav-w-m:50%;--nav-w-m-min:250px;--shadow-sm:0 2px 4px rgba(0,0,0,.1);--shadow-md:0 4px 6px rgba(0,0,0,.1);--shadow-lg:0 4px 10px rgba(0,0,0,.1);--trans:0.3s ease;--color-primary:#2563eb;--color-text:#333;--color-text-light:#4b5563;--color-bg:#f8f9fa;--color-border:#e5e7eb}
 
-/* Layout */
+/* Header */
 header{position:fixed;top:0;left:0;right:0;background:#fff;box-shadow:var(--shadow-sm);z-index:1000;transition:transform .4s ease}
 .header-content{display:flex;justify-content:space-between;align-items:center;padding:15px 1rem;max-width:1200px;margin:0 auto}
 .header--hidden{transform:translateY(-100%)}
@@ -43,7 +26,7 @@ header{position:fixed;top:0;left:0;right:0;background:#fff;box-shadow:var(--shad
 .chopsticks.active span:nth-child(2){opacity:0}
 .chopsticks.active span:nth-child(3){transform:rotate(-15deg);top:12px}
 
-nav{position:fixed;top:var(--header-h);right:-100%;width:var(--nav-w);height:calc(100% - var(--header-h));background:#fff;padding:0 0 env(safe-area-inset-bottom,20px);transition:right var(--trans);z-index:1000;display:flex;flex-direction:column}
+nav{position:fixed;top:var(--header-h);right:-100%;width:var(--nav-w);min-width:var(--nav-width-min);height:calc(100% - var(--header-h));background:#fff;padding:0 0 env(safe-area-inset-bottom,20px);transition:right var(--trans);z-index:1000;display:flex;flex-direction:column}
 nav.active{right:0}
 nav .menu-links{flex-grow:1}
 nav .menu-links a{display:block;margin:20px 25px;color:var(--color-text);font-size:1.2rem;font-weight:600;transition:var(--trans);position:relative;z-index:1001;cursor:pointer;width:fit-content}
@@ -145,27 +128,4 @@ footer{background:#1f2937;color:#fff;padding:2rem 1rem}
 .dropdown-menu a:last-child{margin-bottom:15px!important}
 
 /* Mobile Responsive */
-@media(max-width:768px){
-    main{margin-top:var(--header-h-m)}
-    .slider-container{height:calc(100vh - var(--header-h-m))}
-    .logo{max-width:70%}
-    .logo img{height:35px}
-    .logo a{font-size:1.1rem}
-    nav{top:var(--header-h-m);height:calc(100% - var(--header-h-m));width:var(--nav-w-m);min-width:var(--nav-w-m-min)}
-    nav .social-links,nav .external-links{padding:var(--nav-pad) 0}
-    .overlay{top:var(--header-h-m)}
-    .slide-content{left:5%;right:5%;bottom:25%}
-    #slide4 .slide-content{left:50%;right:auto;bottom:auto}
-    .slide-content h2{font-size:1.8rem}
-    .slide-content p{font-size:1rem}
-    .programs-grid{grid-template-columns:1fr}
-    .programs-intro{padding:3rem 1rem}
-    .programs-intro h1{font-size:2rem}
-    .program-image{height:200px}
-    .about-main{margin-top:var(--header-h-m)}
-    .team-section{padding:2rem 1rem}
-    .team-section>h2{margin-bottom:3rem}
-    .team-category{padding:1.5rem;margin-bottom:2rem}
-    .team-member img{width:150px;height:150px}
-    .mission-vision{gap:2rem}
-}
+@media(max-width:768px){main{margin-top:var(--header-h-m)}.slider-container{height:calc(100vh - var(--header-h-m))}.logo{max-width:70%}.logo img{height:35px}.logo a{font-size:1.1rem}nav{top:var(--header-h-m);height:calc(100% - var(--header-h-m));width:var(--nav-w-m);min-width:var(--nav-w-m-min)}nav .social-links,nav .external-links{padding:var(--nav-pad) 0}.overlay{top:var(--header-h-m)}.slide-content{left:5%;right:5%;bottom:25%}#slide4 .slide-content{left:50%;right:auto;bottom:auto}.slide-content h2{font-size:1.8rem}.slide-content p{font-size:1rem}.programs-grid{grid-template-columns:1fr}.programs-intro{padding:3rem 1rem}.programs-intro h1{font-size:2rem}.program-image{height:200px}.about-main{margin-top:var(--header-h-m)}.team-section{padding:2rem 1rem}.team-section>h2{margin-bottom:3rem}.team-category{padding:1.5rem;margin-bottom:2rem}.team-member img{width:150px;height:150px}.mission-vision{gap:2rem}}
