@@ -43,6 +43,11 @@
     padding: 0 1rem;
 }
 
+.mission h2, .vision h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
 /* Team section */
 .team-section {
     padding: 4rem 2rem;
@@ -51,7 +56,7 @@
 
 .team-section > h2 {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     font-size: 2.1rem;
 }
 
@@ -139,13 +144,7 @@
     }
     
     .team-section {
-        padding: 2rem 1rem;
-    }
-
-    .team-section > h2 {
-        text-align: center;
-        margin-bottom: 3rem;
-        font-size: 2.5rem;
+        padding: 4rem 1rem;
     }
 
     .team-category {
