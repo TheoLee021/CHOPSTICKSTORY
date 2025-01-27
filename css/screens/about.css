@@ -29,6 +29,13 @@
     margin-bottom: 1rem;
 }
 
+.org-intro-p {
+    text-align: left;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
 .about-logo {
     width: 300px;
     height: auto;
@@ -42,16 +49,17 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    max-width: 800px;
+    max-width: 900px;
     margin: 3rem auto 0;
 }
 
 .mission, .vision {
-    text-align: center;
+    text-align: left;
     padding: 0 1rem;
 }
 
 .mission h2, .vision h2 {
+    text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
