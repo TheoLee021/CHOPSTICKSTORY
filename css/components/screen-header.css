@@ -43,6 +43,7 @@ header {
     height: 20px;
     position: relative;
     cursor: pointer;
+    user-select: none;
     z-index: 1001;
 }
 
