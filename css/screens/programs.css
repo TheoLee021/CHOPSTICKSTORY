@@ -36,6 +36,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     height: fit-content;
+    cursor: pointer;
 }
 
 /* .program-card:hover {
@@ -91,14 +92,16 @@
 .program-dropdown-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    color: #2563eb;
+    color: rgba(0, 0, 0, 0.2);
     font-weight: 500;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
     font-size: 1rem;
+    width: 100%;
 }
 
 .program-dropdown-btn i {
