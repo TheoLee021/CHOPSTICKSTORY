@@ -174,3 +174,45 @@ if (document.querySelector('.slider-container')) {
     // Start auto slide when page loads
     startAutoSlide();
 }
+
+// Instagram Feed
+async function loadInstagramFeed() {
+    const accessToken = 'YOUR_INSTAGRAM_ACCESS_TOKEN'; // Instagram Access Token을 여기에 입력하세요
+    const userId = 'YOUR_INSTAGRAM_USER_ID'; // Instagram User ID를 여기에 입력하세요
+    const limit = 6; // 표시할 게시물 수
+
+    try {
+        const response = await fetch(`https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url&access_token=${accessToken}&limit=${limit}`);
+        const data = await response.json();
+        
+        const instagramGrid = document.getElementById('instagram-grid');
+        instagramGrid.innerHTML = '';
+
+        data.data.forEach(post => {
+            const mediaUrl = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
+            const postElement = document.createElement('a');
+            postElement.href = post.permalink;
+            postElement.target = '_blank';
+            postElement.className = 'instagram-post';
+            postElement.innerHTML = `
+                <img src="${mediaUrl}" alt="${post.caption ? post.caption.slice(0, 100) : 'Instagram post'}" loading="lazy">
+            `;
+            instagramGrid.appendChild(postElement);
+        });
+    } catch (error) {
+        console.error('Error loading Instagram feed:', error);
+        // 에러 발생 시 대체 콘텐츠 표시
+        const instagramGrid = document.getElementById('instagram-grid');
+        instagramGrid.innerHTML = `
+            <div style="text-align: center; grid-column: 1/-1; padding: 2rem;">
+                <p>Instagram 피드를 불러오는 중 문제가 발생했습니다.</p>
+                <a href="https://www.instagram.com/chopstickstory/" target="_blank">Instagram에서 직접 보기</a>
+            </div>
+        `;
+    }
+}
+
+// Instagram 피드 로드
+if (document.getElementById('instagram-grid')) {
+    loadInstagramFeed();
+}
