@@ -205,8 +205,8 @@ async function loadInstagramFeed() {
         const instagramGrid = document.getElementById('instagram-grid');
         instagramGrid.innerHTML = `
             <div style="text-align: center; grid-column: 1/-1; padding: 2rem;">
-                <p>Instagram 피드를 불러오는 중 문제가 발생했습니다.</p>
-                <a href="https://www.instagram.com/chopstickstory/" target="_blank">Instagram에서 직접 보기</a>
+                <p>There was a problem loading your Instagram feed.</p>
+                <a href="https://www.instagram.com/chopstickstory/" target="_blank">View directly on Instagram</a>
             </div>
         `;
     }
