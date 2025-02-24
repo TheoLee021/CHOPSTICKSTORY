@@ -177,9 +177,9 @@ if (document.querySelector('.slider-container')) {
 
 // Instagram Feed
 async function loadInstagramFeed() {
-    const accessToken = 'YOUR_INSTAGRAM_ACCESS_TOKEN'; // Instagram Access Token을 여기에 입력하세요
-    const userId = 'YOUR_INSTAGRAM_USER_ID'; // Instagram User ID를 여기에 입력하세요
-    const limit = 6; // 표시할 게시물 수
+    const accessToken = 'YOUR_INSTAGRAM_ACCESS_TOKEN';
+    const userId = 'YOUR_INSTAGRAM_USER_ID';
+    const limit = 6;
 
     try {
         const response = await fetch(`https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url&access_token=${accessToken}&limit=${limit}`);
@@ -201,7 +201,6 @@ async function loadInstagramFeed() {
         });
     } catch (error) {
         console.error('Error loading Instagram feed:', error);
-        // 에러 발생 시 대체 콘텐츠 표시
         const instagramGrid = document.getElementById('instagram-grid');
         instagramGrid.innerHTML = `
             <div style="text-align: center; grid-column: 1/-1; padding: 2rem;">
@@ -212,7 +211,6 @@ async function loadInstagramFeed() {
     }
 }
 
-// Instagram 피드 로드
 if (document.getElementById('instagram-grid')) {
     loadInstagramFeed();
 }
