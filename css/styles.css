@@ -4,9 +4,11 @@
 /* Components */
 @import "components/screen-header.css";
 @import "components/instagram.css";
+
 /* Screens */
 @import "screens/about.css";
 @import "screens/programs.css";
+@import "screens/project.css";
 
 /* Main Content Styles */
 main {
