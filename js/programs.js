@@ -2,12 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const programCards = document.querySelectorAll('.program-card');
     
     programCards.forEach(card => {
-        const toggleDetails = (event) => {
-            // Prevent click from bubbling if clicking the button directly
-            if (event.target.closest('.program-dropdown-btn')) {
-                return;
-            }
-
+        const toggleDetails = () => {
             const btn = card.querySelector('.program-dropdown-btn');
             const details = card.querySelector('.program-details');
             
