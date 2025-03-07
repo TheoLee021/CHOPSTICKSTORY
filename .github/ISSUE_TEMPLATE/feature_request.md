@@ -7,14 +7,6 @@ assignees: ''
 
 ---
 
----
-name: "🚀 Feature Request"
-about: "Suggest a new feature or enhancement"
-title: "[Feature] Briefly describe the feature"
-labels: ["feature", "enhancement"]
-assignees: []
----
-
 ## 🚀 Feature Description
 <!-- Briefly describe the feature you want to add. -->
 - (Example) Implement email verification after user registration.
@@ -22,6 +14,14 @@ assignees: []
 ## 📌 Why Is This Needed?
 <!-- Explain why this feature is necessary and what problem it solves. -->
 - (Example) Currently, users can log in immediately after registration, which may cause security issues.
+
+## ✅ Completion Criteria
+<!-- Define the conditions that indicate this feature is fully implemented. -->
+- [ ] API for email verification exists.
+- [ ] Unverified users cannot log in.
+- [ ] Verified users can access all features.
+
+---
 
 ## 🛠 Suggested Implementation
 <!-- Describe the expected implementation or any considerations. -->
@@ -35,12 +35,5 @@ assignees: []
 - [Example: Gmail’s email verification process](https://example.com/reference)
 - UI Mockup: *(Attach design image here)*
 
-## ✅ Completion Criteria
-<!-- Define the conditions that indicate this feature is fully implemented. -->
-- [ ] API for email verification exists.
-- [ ] Unverified users cannot log in.
-- [ ] Verified users can access all features.
-
----
 ⚠ **Additional Comments**  
 Feel free to add any additional thoughts or suggestions in the comments! 🙌
