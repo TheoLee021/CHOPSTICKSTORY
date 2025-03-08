@@ -7,14 +7,6 @@ assignees: ''
 
 ---
 
----
-name: "🚀 Feature Request"
-about: "Suggest a new feature or improvement"
-title: "[Feature] Briefly describe the feature"
-labels: ["feature", "enhancement"]
-assignees: []
----
-
 ## 🚀 Feature Summary
 <!-- Briefly describe the new feature in 1-2 sentences. -->
 (Example: Add email verification after user registration.)
