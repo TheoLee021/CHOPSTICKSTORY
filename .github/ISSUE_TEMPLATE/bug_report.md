@@ -7,14 +7,6 @@ assignees: ''
 
 ---
 
----
-name: "🐛 Bug Report"
-about: "Report a bug with minimal effort"
-title: "[Bug] Briefly describe the issue"
-labels: ["bug"]
-assignees: []
----
-
 ## 🐛 Issue Summary
 <!-- Briefly describe the problem in 1-2 sentences. -->
 (Example: The login button is unresponsive after entering credentials.)
