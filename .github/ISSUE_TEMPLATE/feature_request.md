@@ -7,33 +7,44 @@ assignees: ''
 
 ---
 
-## 🚀 Feature Description
-<!-- Briefly describe the feature you want to add. -->
-- (Example) Implement email verification after user registration.
+---
+name: "🚀 Feature Request"
+about: "Suggest a new feature or improvement"
+title: "[Feature] Briefly describe the feature"
+labels: ["feature", "enhancement"]
+assignees: []
+---
 
-## 📌 Why Is This Needed?
+## 🚀 Feature Summary
+<!-- Briefly describe the new feature in 1-2 sentences. -->
+(Example: Add email verification after user registration.)
+
+## 🔍 Why Is This Needed?
 <!-- Explain why this feature is necessary and what problem it solves. -->
-- (Example) Currently, users can log in immediately after registration, which may cause security issues.
+(Example: Users can log in immediately after registering, which may lead to security issues.)
 
 ## ✅ Completion Criteria
-<!-- Define the conditions that indicate this feature is fully implemented. -->
-- [ ] API for email verification exists.
-- [ ] Unverified users cannot log in.
-- [ ] Verified users can access all features.
+<!-- Define what conditions indicate this feature is successfully implemented. -->
+- [ ] Feature is implemented.
+- [ ] Expected functionality is working as intended.
+- [ ] No related errors occur.
 
 ---
 
-## 🛠 Suggested Implementation
-<!-- Describe the expected implementation or any considerations. -->
-- (Example)
-  1. Send an email verification code upon registration.
-  2. Activate the account when the user clicks the verification link.
-  3. Restrict access to certain features until the account is verified.
+### ⚡ Optional: More Details (For Complex Features)
+<details>
+<summary>Click to expand</summary>
 
-## 📸 Reference Materials
-<!-- Add any relevant references (documents, images, links, etc.). -->
-- [Example: Gmail’s email verification process](https://example.com/reference)
-- UI Mockup: *(Attach design image here)*
+### 🛠 Suggested Implementation
+<!-- Provide details on how this feature might be implemented. -->
+- *(Example: Send a verification email upon registration.)*
 
-⚠ **Additional Comments**  
-Feel free to add any additional thoughts or suggestions in the comments! 🙌
+### 📸 References / Mockups (Optional)
+<!-- Attach UI mockups, links, or reference documents. -->
+- *(Example: Gmail’s email verification process.)*
+
+### 📝 Additional Context
+<!-- Any other useful information. -->
+- *(Example: Related issues, technical considerations.)*
+
+</details>
