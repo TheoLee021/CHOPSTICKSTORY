@@ -9,49 +9,48 @@ assignees: ''
 
 ---
 name: "🐛 Bug Report"
-about: "Report a problem or unexpected behavior in the project"
+about: "Report a bug with minimal effort"
 title: "[Bug] Briefly describe the issue"
 labels: ["bug"]
 assignees: []
 ---
 
-** 🐛 Bug Description **
-<!-- Clearly describe the issue you encountered. -->
-- (Example) The login button is not clickable after entering credentials.
+## 🐛 Issue Summary
+<!-- Briefly describe the problem in 1-2 sentences. -->
+(Example: The login button is unresponsive after entering credentials.)
 
-** 🔍 Steps to Reproduce **
-<!-- Provide step-by-step instructions to reproduce the issue. -->
-1. Go to the login page.
-2. Enter username and password.
-3. Click the login button.
-4. **Expected behavior:** The user should be logged in.
-5. **Actual behavior:** The login button is unresponsive.
+## 🔍 Steps to Reproduce
+1. **Step 1:** (Example: Go to the login page.)
+2. **Step 2:** (Example: Enter username and password.)
+3. **Step 3:** (Example: Click the login button.)
+4. **Expected result:** (Example: The user should be logged in.)
+5. **Actual result:** (Example: The login button does nothing.)
 
-** 🖥️ Expected Behavior **
-<!-- Describe what should happen if the bug is fixed. -->
-- (Example) Clicking the login button should send a request to authenticate the user.
-
-** 📸 Screenshots (Optional) **
-<!-- If applicable, add screenshots or videos to help explain the issue. -->
-- *(Attach image or video here if needed)*
-
-** 🛠 Environment **
-<!-- Provide details about the environment where the bug occurred. -->
-- **OS:** Windows 11 / macOS Monterey / Ubuntu 22.04
-- **Browser:** Chrome v123 / Firefox v99
-- **Device:** Desktop / Mobile
-- **Project Version:** (e.g., v1.2.3)
-
-** 📝 Additional Context **
-<!-- Add any other context, logs, or error messages related to the bug. -->
-- *(Paste relevant logs, stack traces, or other details here if available.)*
-
-** ✅ Completion Criteria **
-<!-- Define what conditions indicate the bug has been successfully fixed. -->
-- [ ] The login button is clickable.
-- [ ] Users can log in without issues.
-- [ ] No console errors occur during login.
+## ✅ Quick Fix Criteria
+<!-- Mark as completed when resolved. -->
+- [ ] Bug is fixed.
+- [ ] Expected behavior is restored.
+- [ ] No related errors appear in the console.
 
 ---
-⚠ **Additional Comments**  
-If you have any extra details or suggestions, please add them here! 🚀
+
+### ⚡ Optional: More Details (For Complex Issues)
+<details>
+<summary>Click to expand</summary>
+
+### 🖥️ Environment
+<!-- System details where the bug occurred. -->
+- **OS:** (Example: Windows 11 / macOS Monterey)
+- **Browser/Version:** (Example: Chrome v123 / Firefox v99)
+- **Device:** (Example: Desktop / Mobile)
+- **Project Version:** (Example: v1.2.3)
+
+### 📸 Screenshots / Logs
+<!-- Attach relevant images, logs, or error messages. -->
+- *(Attach screenshot or error log if applicable.)*
+
+### 📝 Additional Context
+<!-- Any other useful information. -->
+- *(Example: Related issues, possible causes, suggestions.)*
+
+</details>
