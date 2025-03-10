@@ -6,31 +6,9 @@
 
 ## Introduction (소개)
 
-ChopsticStory is a project dedicated to sharing Korean culture through meaningful experiences. Our goal is to share the beauty and value of Korean culture with the world through various programs.
+ChopsticStory is a project dedicated to sharing Korean culture through meaningful experiences. Our goal is to share the beauty and value of Korean culture through various programs.
 
-CHOPSTICKSTORY는 한국 문화를 의미 있는 경험을 통해 나누는 프로젝트입니다. 다양한 프로그램을 통해 한국 문화의 아름다움과 가치를 전세계와 공유하는 것이 저희의 목표입니다.
-
-## Main Programs (주요 프로그램)
-
-### 🏮 MunDam (문담): Infusing Culture
-A program to learn and experience the basic elements and traditions of Korean culture.
-
-한국 문화의 기본 요소와 전통을 배우고 체험하는 프로그램입니다.
-
-### 🎨 YeDam (예담): Infusing Art
-A program exploring Korean art and creative expression.
-
-한국 예술과 창의적 표현을 탐구하는 프로그램입니다.
-
-### 💫 DeokDam (덕담): Infusing Virtue
-A program to learn about Korean ethical values and virtues.
-
-한국의 윤리적 가치와 미덕을 배우는 프로그램입니다.
-
-### 🌟 CheDam (체담): Infusing Experiences
-A program to experience Korean culture through direct participation.
-
-직접적인 체험을 통해 한국 문화를 경험하는 프로그램입니다.
+CHOPSTICKSTORY는 한국 문화를 의미 있는 경험을 통해 나누는 프로젝트입니다. 다양한 프로그램을 통해 한국 문화의 아름다움과 가치를 공유하는 것이 저희의 목표입니다.
 
 ## Website Structure (웹사이트 구조)
 
@@ -61,8 +39,8 @@ This website consists of static HTML pages that can be run immediately without a
 
 ## Contact (연락처)
 
-- Email: info@chopstickstory.org
 - Tech Lead: theolee021@gmail.com
+- Email: info@chopstickstory.org
 - Instagram: [@chopstickstory](https://www.instagram.com/chopstickstory/)
 
 ## Contribution (기여 방법)
