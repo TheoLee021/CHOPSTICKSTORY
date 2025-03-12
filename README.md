@@ -8,8 +8,6 @@
 
 ChopsticStory is a project dedicated to sharing Korean culture through meaningful experiences. Our goal is to share the beauty and value of Korean culture through various programs.
 
-CHOPSTICKSTORY는 한국 문화를 의미 있는 경험을 통해 나누는 프로젝트입니다. 다양한 프로그램을 통해 한국 문화의 아름다움과 가치를 공유하는 것이 저희의 목표입니다.
-
 ## Website Structure (웹사이트 구조)
 
 - **Home (홈페이지)**: Overview of the project and key features
@@ -40,14 +38,14 @@ This website consists of static HTML pages that can be run immediately without a
 ## Contact (연락처)
 
 - Tech Lead: theolee021@gmail.com
-- Email: info@chopstickstory.org
+- Official: info@chopstickstory.org
 - Instagram: [@chopstickstory](https://www.instagram.com/chopstickstory/)
 
 ## Contribution (기여 방법)
 
-If you would like to contribute to the project, please check and participate in existing issues. You can also register a new issue or send a PR. All suggestions and feedback are welcome.
+If you would like to contribute to the project, please check and participate in existing issues. You can comment or commit your code via a branch. You can also register a new issue or send a PR(Pull Request). All suggestions and feedback are welcome.
 
-프로젝트에 기여하고 싶으시다면 기존에 등록된 이슈를 확인하고 참여해주세요. 또한 새로운 이슈를 등록하거나 PR을 보내주셔도 됩니다. 모든 제안과 피드백을 환영합니다.
+프로젝트에 기여하고 싶으시다면 기존에 등록된 이슈를 확인하고 참여해주세요. 코멘트를 달거나 브랜치를 통해 코드를 커밋하실 수 있습니다. 또한 새로운 이슈를 등록하거나 PR(Pull Request)을 보내주셔도 됩니다. 모든 제안과 피드백을 환영합니다.
 
 ## License (라이선스)
 
