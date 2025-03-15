@@ -78,9 +78,9 @@
 
 .team-category {
     max-width: 1000px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 4rem auto;
     background: white;
-    padding: 2.5rem;
+    padding: 3rem 1rem;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -113,7 +113,7 @@
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
-    gap: 3rem;
+    gap: 2rem;
     justify-content: center;
 }
 
