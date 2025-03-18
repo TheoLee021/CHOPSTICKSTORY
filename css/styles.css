@@ -32,8 +32,8 @@ main {
 }
 
 .slider-bar {
-    width: 60px;
-    height: 5px;
+    width: 35px;
+    height: 4px;
     /* border-radius: 2px; */
     background: rgba(0, 0, 0, 0.3);
     cursor: pointer;
