@@ -223,13 +223,19 @@ footer {
         height: calc(100% - var(--header-height-mobile));
         width: var(--nav-width-mobile);
     }
+    
+    /* Improved scrolling experience for mobile */
+    nav .menu-links.scrollable {
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        padding-bottom: 30px; /* Additional padding for small screens */
+    }
 
     nav .social-links {
-        padding: var(--nav-section-padding) 0;
+        padding: var(--nav-section-padding-mobile) 0;
     }
     
     nav .external-links {
-        padding: var(--nav-section-padding) 0;
+        padding: var(--nav-section-padding-mobile) 0;
     }
 
     .overlay {

@@ -110,6 +110,54 @@ nav.active {
 
 nav .menu-links {
     flex-grow: 1;
+    overflow-y: auto; /* Add scroll when content overflows */
+    scrollbar-width: thin; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Styles for when menu needs scrolling */
+nav .menu-links.scrollable {
+    padding-right: 5px;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    /* Add subtle scroll indicator */
+    background: linear-gradient(white 30%, rgba(255, 255, 255, 0.9)) right bottom,
+                linear-gradient(to top, white 30%, rgba(255, 255, 255, 0)) right top;
+    background-repeat: no-repeat;
+    background-size: 100% 20px;
+    background-attachment: local, local;
+}
+
+/* Custom scrollbar for WebKit browsers */
+nav .menu-links::-webkit-scrollbar {
+    width: 4px;
+}
+
+nav .menu-links::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+nav .menu-links::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+/* Add background to social-links and external-links to ensure legibility when scrolling */
+nav .social-links,
+nav .external-links {
+    position: relative;
+    background-color: white;
+    z-index: 2;
+}
+
+/* Add shadow to create visual separation when menu is scrolling */
+nav .menu-links.scrollable + .social-links {
+    box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add padding to ensure content isn't hidden under fixed elements */
+nav .menu-links.scrollable {
+    padding-bottom: 20px;
 }
 
 nav .menu-links a {
