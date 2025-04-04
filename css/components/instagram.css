@@ -1,11 +1,11 @@
 /* Instagram Feed Styles */
 .instagram-feed {
-    padding: 100px 1rem 4rem 1rem;
+    padding: 4rem 1rem;
     background-color: #f9fafb;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -37,6 +37,7 @@
     overflow: hidden;
     border-radius: 8px;
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .instagram-post:hover {
@@ -49,20 +50,44 @@
     object-fit: cover;
 }
 
-.instagram-post::after {
-    content: '';
+.post-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 1.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.post-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
 
-.instagram-post:hover::after {
+.instagram-post:hover .post-overlay {
     opacity: 1;
+}
+
+.post-likes {
+    color: white;
+    font-size: 1.5rem;
 }
 
 .instagram-follow-btn {
