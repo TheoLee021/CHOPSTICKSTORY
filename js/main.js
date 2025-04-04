@@ -175,42 +175,73 @@ if (document.querySelector('.slider-container')) {
     startAutoSlide();
 }
 
-// Instagram Feed
-async function loadInstagramFeed() {
-    const accessToken = 'YOUR_INSTAGRAM_ACCESS_TOKEN';
-    const userId = 'YOUR_INSTAGRAM_USER_ID';
-    const limit = 6;
-
+// Behold Instagram Feed
+async function loadBeholdFeed() {
+    // Behold에서 제공한 JSON Feed URL
+    const BEHOLD_FEED_URL = 'https://feeds.behold.so/QmrH8sxjg7rmJixicWYy';
+    
     try {
-        const response = await fetch(`https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url&access_token=${accessToken}&limit=${limit}`);
+        const response = await fetch(BEHOLD_FEED_URL);
         const data = await response.json();
         
         const instagramGrid = document.getElementById('instagram-grid');
         instagramGrid.innerHTML = '';
 
-        data.data.forEach(post => {
-            const mediaUrl = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
+        // behold.json 구조에 맞게 데이터 추출
+        // posts 배열에 최대 6개 포스트만 표시
+        const posts = data.posts?.slice(0, 6) || [];
+        
+        posts.forEach(post => {
+            // 미디어 URL 결정 (sizes.medium 또는 대체 이미지)
+            let mediaUrl;
+            if (post.mediaType === 'VIDEO' && post.thumbnailUrl) {
+                // 비디오인 경우 썸네일 사용
+                mediaUrl = post.thumbnailUrl;
+            } else if (post.sizes && post.sizes.medium) {
+                // medium 사이즈 이미지 사용
+                mediaUrl = post.sizes.medium.mediaUrl;
+            } else {
+                // 기본 미디어 URL 사용
+                mediaUrl = post.mediaUrl;
+            }
+            
+            // 캡션 정리 (짧은 버전 사용)
+            const caption = post.prunedCaption || post.caption || '';
+            
+            // 포스트 타입에 따른 아이콘 추가
+            const isVideo = post.mediaType === 'VIDEO' || post.isReel;
+            const icon = isVideo ? '<i class="fa-solid fa-play post-icon"></i>' : '';
+            
             const postElement = document.createElement('a');
             postElement.href = post.permalink;
             postElement.target = '_blank';
-            postElement.className = 'instagram-post';
+            postElement.rel = 'noopener';
+            postElement.className = `instagram-post ${isVideo ? 'video-post' : ''}`;
             postElement.innerHTML = `
-                <img src="${mediaUrl}" alt="${post.caption ? post.caption.slice(0, 100) : 'Instagram post'}" loading="lazy">
+                <img src="${mediaUrl}" alt="${caption ? caption.slice(0, 100) : 'Instagram post'}" loading="lazy">
+                ${icon}
+                <div class="post-overlay">
+                    <span class="post-likes">
+                        <i class="fa-solid fa-heart"></i>
+                    </span>
+                </div>
             `;
             instagramGrid.appendChild(postElement);
         });
     } catch (error) {
-        console.error('Error loading Instagram feed:', error);
+        console.error('Error loading Behold Instagram feed:', error);
+        // 에러 발생 시 대체 콘텐츠 표시
         const instagramGrid = document.getElementById('instagram-grid');
         instagramGrid.innerHTML = `
             <div style="text-align: center; grid-column: 1/-1; padding: 2rem;">
-                <p>There was a problem loading your Instagram feed.</p>
-                <a href="https://www.instagram.com/chopstickstory/" target="_blank">View directly on Instagram</a>
+                <p>Instagram 피드를 불러오는 중 문제가 발생했습니다.</p>
+                <a href="https://www.instagram.com/chopstickstory/" target="_blank">Instagram에서 직접 보기</a>
             </div>
         `;
     }
 }
 
+// Instagram 피드 로드
 if (document.getElementById('instagram-grid')) {
-    loadInstagramFeed();
+    loadBeholdFeed();
 }
