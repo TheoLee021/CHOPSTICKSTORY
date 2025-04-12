@@ -3,7 +3,7 @@
 
 /* Components */
 @import "components/screen-header.css";
-@import "components/instagram.css";
+@import "components/socialmedia.css";
 
 /* Screens */
 @import "screens/about.css";

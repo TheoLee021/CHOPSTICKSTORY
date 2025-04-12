@@ -1,0 +1,210 @@
+/* Instagram Feed Styles */
+.instagram-feed {
+    padding: 170px 1rem 3rem 1rem;
+    background-color: #f9fafb;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #1f2937;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin-bottom: 1rem;
+}
+
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+}
+
+.instagram-post {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    /* border-radius: 8px; */
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.instagram-post:hover {
+    transform: scale(1.02);
+}
+
+.instagram-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 1.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.post-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.instagram-post:hover .post-overlay {
+    opacity: 1;
+}
+
+.post-likes {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.instagram-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease;
+}
+
+.instagram-icon-gradient {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    /* box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25); */
+}
+
+.instagram-icon-gradient i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.instagram-icon-link:hover {
+    transform: scale(1.05);
+}
+
+/* 링크드인 아이콘 */
+.linkedin-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease;
+}
+
+.linkedin-icon-gradient {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #0077b5; /* 링크드인 공식 색상 */
+    /* box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25); */
+}
+
+.linkedin-icon-gradient i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.linkedin-icon-link:hover {
+    transform: scale(1.05);
+}
+
+/* 유튜브 아이콘 */
+.youtube-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease;
+}
+
+.youtube-icon-gradient {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ff0000; /* 유튜브 공식 색상 */
+    /* box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25); */
+}
+
+.youtube-icon-gradient i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.youtube-icon-link:hover {
+    transform: scale(1.05);
+}
+
+/* 아이콘 컨테이너 - 세 아이콘을 나란히 배치 */
+.social-icons-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin: 2rem auto;
+}
+
+@media (max-width: 768px) {
+    .instagram-feed {
+        padding: 100px 1rem 3rem 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
