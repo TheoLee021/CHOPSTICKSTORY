@@ -15,7 +15,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
     /* border-bottom: 1px solid #374151; */
@@ -70,7 +70,7 @@ footer {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    font-size: 14px;
+    font-size: 0.9rem;
 }
 
 .org-info h3 {
@@ -86,6 +86,6 @@ footer {
     padding-top: 1rem;
     border-top: 1px solid #374151;
     text-align: center;
-    font-size: 14px;
+    font-size: 0.9rem;
     color: #9ca3af;
 }
