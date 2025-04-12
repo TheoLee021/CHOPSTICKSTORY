@@ -53,14 +53,14 @@
 
 .post-icon {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     color: white;
     font-size: 1.2rem;
-    background: rgba(0, 0, 0, 0.5);
+    /* background: rgba(0, 0, 0, 0);
     width: 32px;
     height: 32px;
-    border-radius: 50%;
+    border-radius: 50%; */
     display: flex;
     align-items: center;
     justify-content: center;
