@@ -92,6 +92,18 @@ footer {
 
 @media (max-width: 768px) {
     .footer-sitemap {
+        flex-wrap: nowrap;
         gap: 1rem;
+    }
+    
+    .sitemap-column {
+        min-width: unset;
+        flex-shrink: 1;
+    }
+    
+    .sitemap-column ul li a {
+        word-wrap: break-word;
+        white-space: normal;
+        display: inline-block;
     }
 }
