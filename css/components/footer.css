@@ -89,3 +89,9 @@ footer {
     font-size: 0.9rem;
     color: #9ca3af;
 }
+
+@media (max-width: 768px) {
+    .footer-sitemap {
+        gap: 1rem;
+    }
+}
